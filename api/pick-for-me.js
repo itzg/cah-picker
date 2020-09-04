@@ -1,10 +1,7 @@
 const fetch = require('node-fetch');
+const pickOne = require('../pick').pickOne;
 
 const baseUrl = 'https://cards-against-humanity-api.herokuapp.com';
-
-function pickOne(cards) {
-  return cards[Math.floor(Math.random()*cards.length)];
-}
 
 module.exports = (req, res) => {
   const { set = 'Base' } = req.query
