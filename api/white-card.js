@@ -2,7 +2,9 @@
 module.exports = (req, res) => {
   const { text = 'Please provide "text" parameter' } = req.query;
 
-  res.setHeader('Content-Type', 'text/html')
+  const fontSize = text.length > 50 ? 12 : 16;
+
+  res.setHeader('Content-Type', 'text/html');
   res.status(200)
     .send(`
 <!doctype html>
@@ -21,7 +23,7 @@ module.exports = (req, res) => {
       border-radius: 5mm;
       padding: 5mm;
       font-family: sans-serif;
-      font-size: 14pt;
+      font-size: ${fontSize}pt;
       color: black;
       background-color: white;
       line-height: 150%;
